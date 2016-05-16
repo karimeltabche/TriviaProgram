@@ -95,7 +95,7 @@ namespace TriviaProgram
                     
                          
                         /*switch (++counter)
-                    {
+                    {asdasdasdaaadasasd
                         case 1: lblQuestion.Text = line; break;
                         case 2: rdbAnswer1.Text = line; break;
                         case 3: rdbAnswer2.Text = line; break;
