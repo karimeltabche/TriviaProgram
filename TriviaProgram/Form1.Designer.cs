@@ -36,7 +36,6 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.lnkScore = new System.Windows.Forms.LinkLabel();
-            this.lblAnswer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -54,7 +53,6 @@
             this.rdbAnswer1.Name = "rdbAnswer1";
             this.rdbAnswer1.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer1.TabIndex = 0;
-            this.rdbAnswer1.TabStop = true;
             this.rdbAnswer1.UseVisualStyleBackColor = true;
             // 
             // rdbAnswer2
@@ -64,7 +62,6 @@
             this.rdbAnswer2.Name = "rdbAnswer2";
             this.rdbAnswer2.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer2.TabIndex = 1;
-            this.rdbAnswer2.TabStop = true;
             this.rdbAnswer2.UseVisualStyleBackColor = true;
             // 
             // rdbAnswer3
@@ -74,7 +71,6 @@
             this.rdbAnswer3.Name = "rdbAnswer3";
             this.rdbAnswer3.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer3.TabIndex = 2;
-            this.rdbAnswer3.TabStop = true;
             this.rdbAnswer3.UseVisualStyleBackColor = true;
             // 
             // rdbAnswer4
@@ -84,7 +80,6 @@
             this.rdbAnswer4.Name = "rdbAnswer4";
             this.rdbAnswer4.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer4.TabIndex = 3;
-            this.rdbAnswer4.TabStop = true;
             this.rdbAnswer4.UseVisualStyleBackColor = true;
             // 
             // btnNext
@@ -117,21 +112,11 @@
             this.lnkScore.TabStop = true;
             this.lnkScore.Text = "View Score";
             // 
-            // lblAnswer
-            // 
-            this.lblAnswer.AutoSize = true;
-            this.lblAnswer.Location = new System.Drawing.Point(217, 254);
-            this.lblAnswer.Name = "lblAnswer";
-            this.lblAnswer.Size = new System.Drawing.Size(35, 13);
-            this.lblAnswer.TabIndex = 7;
-            this.lblAnswer.Text = "label1";
-            // 
             // frmTrivia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 289);
-            this.Controls.Add(this.lblAnswer);
             this.Controls.Add(this.lnkScore);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnNext);
@@ -158,7 +143,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.LinkLabel lnkScore;
-        private System.Windows.Forms.Label lblAnswer;
     }
 }
 

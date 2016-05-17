@@ -14,7 +14,8 @@ namespace TriviaProgram
 
     public partial class frmTrivia : Form
     {
-        int x = 0;
+        string question, ans1, ans2, ans3, ans4;
+        int ansChoose, ansCorrect, score;
         StreamReader inputFile = new StreamReader(@"questions.txt");
 
 
@@ -31,86 +32,90 @@ namespace TriviaProgram
         private void frmTrivia_Load(object sender, EventArgs e)
         {
 
-           /* try
+           try
             {
                 inputFile = File.OpenText(@"questions.txt");
-                MessageBox.Show("File exist\n");
-                string line;
-                int counter = 0;
-                string[] lines = File.ReadAllLines(@"questions.txt");
-                string firstLine = lines[0];
 
-                while ((line = inputFile.ReadLine()) != null)
-                {
-                    switch(++counter)
-                    {
-                        case 1: lblQuestion.Text = line; break;
-                        case 2: rdbAnswer1.Text = line; break;
-                        case 3: rdbAnswer2.Text = line; break;
-                        case 4: rdbAnswer3.Text = line; break;
-                        case 5: rdbAnswer4.Text = line; break;
-                        case 6: lblAnswer.Text = line; break;
-                    }
-                }
-                inputFile.Close();
+                MessageBox.Show("File exist\n");
+                question = inputFile.ReadLine();
+                ans1 = inputFile.ReadLine();
+                ans2 = inputFile.ReadLine();
+                ans3 = inputFile.ReadLine();
+                ans4 = inputFile.ReadLine();
+                ansCorrect = Convert.ToInt32(inputFile.ReadLine());
+                lblQuestion.Text = question.ToString();
+                rdbAnswer1.Text = ans1.ToString();
+                rdbAnswer2.Text = ans2.ToString();
+                rdbAnswer3.Text = ans3.ToString();
+                rdbAnswer4.Text = ans4.ToString();
+
+
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("File does not exist\n" + ex.Message);
-            }*/
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            /*string line;
-
-            if (!inputFile.EndOfStream)
+            if (rdbAnswer1.Checked ==false && rdbAnswer2.Checked ==false && rdbAnswer3.Checked==false && rdbAnswer4.Checked ==false)
             {
-                 line = inputFile.ReadLine();
-                 
-                lblQuestion.Text = line;
-                
+                MessageBox.Show("Please choose an answer before proceeding");
             }
             else
             {
-                MessageBox.Show("End");
-                inputFile.Close();
-            }*/
-
-
-
-            try
-            {
-                inputFile = File.OpenText(@"questions.txt");
-                MessageBox.Show("File exist\n");
-                string line;
-                int counter = 0;
-                string[] lines = File.ReadAllLines(@"questions.txt");
-                string firstLine = lines[0];
-
-                while ((line = inputFile.ReadLine()) != null)
+                if (rdbAnswer1.Checked)
                 {
+                    ansChoose = 1;
+                }
+                else if (rdbAnswer2.Checked)
+                {
+                    ansChoose = 2;
+                }
+                else if (rdbAnswer3.Checked)
+                {
+                    ansChoose = 3;
+                }
+                else if (rdbAnswer4.Checked)
+                {
+                    ansChoose = 4;
+                }
+
+                if (ansChoose == ansCorrect)
+                {
+                    ++score;
+                    MessageBox.Show("Correct!");
+                }
+                else
+                {
+                    MessageBox.Show("Wrong!");
+                }
+                if (!inputFile.EndOfStream)
+                {
+                    question = inputFile.ReadLine();
+                    ans1 = inputFile.ReadLine();
+                    ans2 = inputFile.ReadLine();
+                    ans3 = inputFile.ReadLine();
+                    ans4 = inputFile.ReadLine();
+                    ansCorrect = Convert.ToInt32(inputFile.ReadLine());
+                    lblQuestion.Text = question.ToString();
+                    rdbAnswer1.Text = ans1.ToString();
+                    rdbAnswer2.Text = ans2.ToString();
+                    rdbAnswer3.Text = ans3.ToString();
+                    rdbAnswer4.Text = ans4.ToString();
 
                     
-                         
-                        /*switch (++counter)
-                    {Karim
-                        case 1: lblQuestion.Text = line; break;
-                        case 2: rdbAnswer1.Text = line; break;
-                        case 3: rdbAnswer2.Text = line; break;
-                        case 4: rdbAnswer3.Text = line; break;
-                        case 5: rdbAnswer4.Text = line; break;
-                        case 6: lblAnswer.Text = line; break;
-                    }*/
                 }
-                inputFile.Close();
+                else
+                {
+                    inputFile.Close();
 
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("File does not exist\n" + ex.Message);
-            }
+
         }
     }
 }
