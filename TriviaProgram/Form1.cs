@@ -3,7 +3,7 @@ FileName: TriviaProgram
 FileType: Visual C#
 Author: Karim El-Tabche
 Created On: 5/15/2016 12:27:11 PM
-Last Modified On: 5/17/2016 PM
+Last Modified On: 5/17/2016 12:30:05 AM
 Description: This is a quiz game that reads questions
              and answers from a file and display them 
              in a quiz format.
