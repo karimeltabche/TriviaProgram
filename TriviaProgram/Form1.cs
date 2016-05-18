@@ -15,7 +15,7 @@ namespace TriviaProgram
     public partial class frmTrivia : Form
     {
         string question, ans1, ans2, ans3, ans4;
-        int ansChoose, ansCorrect, score;
+        int ansChoose, ansCorrect, score, wrongAns;
         StreamReader inputFile = new StreamReader(@"questions.txt");
 
 
@@ -61,63 +61,89 @@ namespace TriviaProgram
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (rdbAnswer1.Checked ==false && rdbAnswer2.Checked ==false && rdbAnswer3.Checked==false && rdbAnswer4.Checked ==false)
+            try
             {
-                MessageBox.Show("Please choose an answer before proceeding");
+
+                if (rdbAnswer1.Checked == false && rdbAnswer2.Checked == false && rdbAnswer3.Checked == false && rdbAnswer4.Checked == false)
+                {
+                    MessageBox.Show("Please choose an answer before proceeding");
+                }
+                else
+                {
+                    if (rdbAnswer1.Checked)
+                    {
+                        ansChoose = 1;
+                    }
+                    else if (rdbAnswer2.Checked)
+                    {
+                        ansChoose = 2;
+                    }
+                    else if (rdbAnswer3.Checked)
+                    {
+                        ansChoose = 3;
+                    }
+                    else if (rdbAnswer4.Checked)
+                    {
+                        ansChoose = 4;
+                    }
+
+                    if (ansChoose == ansCorrect)
+                    {
+                        ++score;
+                        MessageBox.Show("Correct!");
+                        lblCorrect.Text = score.ToString();
+                        
+                    }
+                    else
+                    {
+                        ++wrongAns;
+                        MessageBox.Show("Wrong!");
+                        lblWrong.Text = wrongAns.ToString();
+                    }
+                    if (!inputFile.EndOfStream)
+                    {
+                        question = inputFile.ReadLine();
+                        ans1 = inputFile.ReadLine();
+                        ans2 = inputFile.ReadLine();
+                        ans3 = inputFile.ReadLine();
+                        ans4 = inputFile.ReadLine();
+                        ansCorrect = Convert.ToInt32(inputFile.ReadLine());
+                        lblQuestion.Text = question.ToString();
+                        rdbAnswer1.Text = ans1.ToString();
+                        rdbAnswer2.Text = ans2.ToString();
+                        rdbAnswer3.Text = ans3.ToString();
+                        rdbAnswer4.Text = ans4.ToString();
+
+                        rdbAnswer1.Checked = false;
+                        rdbAnswer2.Checked = false;
+                        rdbAnswer3.Checked = false;
+                        rdbAnswer4.Checked = false;
+
+                    }
+                    else
+                    {
+                        if(score > wrongAns)
+                        {
+                            MessageBox.Show("You have passed!!\nYou are a Genius");
+                        }
+                        else
+                        {
+                            MessageBox.Show("You have Failed!!\nGood luck next time");
+                        }
+                        inputFile.Close();
+                        btnNext.Text = "Finish";
+                        btnNext.Enabled = false;
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                if (rdbAnswer1.Checked)
-                {
-                    ansChoose = 1;
-                }
-                else if (rdbAnswer2.Checked)
-                {
-                    ansChoose = 2;
-                }
-                else if (rdbAnswer3.Checked)
-                {
-                    ansChoose = 3;
-                }
-                else if (rdbAnswer4.Checked)
-                {
-                    ansChoose = 4;
-                }
-
-                if (ansChoose == ansCorrect)
-                {
-                    ++score;
-                    MessageBox.Show("Correct!");
-                }
-                else
-                {
-                    MessageBox.Show("Wrong!");
-                }
-                if (!inputFile.EndOfStream)
-                {
-                    question = inputFile.ReadLine();
-                    ans1 = inputFile.ReadLine();
-                    ans2 = inputFile.ReadLine();
-                    ans3 = inputFile.ReadLine();
-                    ans4 = inputFile.ReadLine();
-                    ansCorrect = Convert.ToInt32(inputFile.ReadLine());
-                    lblQuestion.Text = question.ToString();
-                    rdbAnswer1.Text = ans1.ToString();
-                    rdbAnswer2.Text = ans2.ToString();
-                    rdbAnswer3.Text = ans3.ToString();
-                    rdbAnswer4.Text = ans4.ToString();
-
-                    
-                }
-                else
-                {
-                    inputFile.Close();
-
-                }
+                MessageBox.Show("Error-:" + ex.Message);
+            }
             }
 
         }
     }
-}
+
     
 

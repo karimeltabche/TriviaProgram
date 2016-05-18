@@ -35,21 +35,26 @@
             this.rdbAnswer4 = new System.Windows.Forms.RadioButton();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.lnkScore = new System.Windows.Forms.LinkLabel();
+            this.lblCorrect = new System.Windows.Forms.Label();
+            this.lblWrong = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblQuestion
             // 
             this.lblQuestion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblQuestion.Location = new System.Drawing.Point(47, 40);
+            this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion.Location = new System.Drawing.Point(12, 18);
             this.lblQuestion.Name = "lblQuestion";
-            this.lblQuestion.Size = new System.Drawing.Size(364, 23);
+            this.lblQuestion.Size = new System.Drawing.Size(521, 33);
             this.lblQuestion.TabIndex = 0;
+            this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rdbAnswer1
             // 
             this.rdbAnswer1.AutoSize = true;
-            this.rdbAnswer1.Location = new System.Drawing.Point(47, 97);
+            this.rdbAnswer1.Location = new System.Drawing.Point(36, 83);
             this.rdbAnswer1.Name = "rdbAnswer1";
             this.rdbAnswer1.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer1.TabIndex = 0;
@@ -58,7 +63,7 @@
             // rdbAnswer2
             // 
             this.rdbAnswer2.AutoSize = true;
-            this.rdbAnswer2.Location = new System.Drawing.Point(47, 134);
+            this.rdbAnswer2.Location = new System.Drawing.Point(36, 120);
             this.rdbAnswer2.Name = "rdbAnswer2";
             this.rdbAnswer2.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer2.TabIndex = 1;
@@ -67,7 +72,7 @@
             // rdbAnswer3
             // 
             this.rdbAnswer3.AutoSize = true;
-            this.rdbAnswer3.Location = new System.Drawing.Point(47, 171);
+            this.rdbAnswer3.Location = new System.Drawing.Point(36, 157);
             this.rdbAnswer3.Name = "rdbAnswer3";
             this.rdbAnswer3.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer3.TabIndex = 2;
@@ -76,7 +81,7 @@
             // rdbAnswer4
             // 
             this.rdbAnswer4.AutoSize = true;
-            this.rdbAnswer4.Location = new System.Drawing.Point(47, 208);
+            this.rdbAnswer4.Location = new System.Drawing.Point(36, 194);
             this.rdbAnswer4.Name = "rdbAnswer4";
             this.rdbAnswer4.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer4.TabIndex = 3;
@@ -102,22 +107,47 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.button2_Click);
             // 
-            // lnkScore
+            // lblCorrect
             // 
-            this.lnkScore.AutoSize = true;
-            this.lnkScore.Location = new System.Drawing.Point(478, 13);
-            this.lnkScore.Name = "lnkScore";
-            this.lnkScore.Size = new System.Drawing.Size(61, 13);
-            this.lnkScore.TabIndex = 6;
-            this.lnkScore.TabStop = true;
-            this.lnkScore.Text = "View Score";
+            this.lblCorrect.Location = new System.Drawing.Point(167, 252);
+            this.lblCorrect.Name = "lblCorrect";
+            this.lblCorrect.Size = new System.Drawing.Size(23, 23);
+            this.lblCorrect.TabIndex = 7;
+            // 
+            // lblWrong
+            // 
+            this.lblWrong.Location = new System.Drawing.Point(309, 252);
+            this.lblWrong.Name = "lblWrong";
+            this.lblWrong.Size = new System.Drawing.Size(23, 23);
+            this.lblWrong.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 253);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Correct answers: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(216, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Wrong answers: ";
             // 
             // frmTrivia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 289);
-            this.Controls.Add(this.lnkScore);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblWrong);
+            this.Controls.Add(this.lblCorrect);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.rdbAnswer4);
@@ -126,6 +156,7 @@
             this.Controls.Add(this.rdbAnswer1);
             this.Controls.Add(this.lblQuestion);
             this.Name = "frmTrivia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trivia Program";
             this.Load += new System.EventHandler(this.frmTrivia_Load);
             this.ResumeLayout(false);
@@ -142,7 +173,10 @@
         private System.Windows.Forms.RadioButton rdbAnswer4;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.LinkLabel lnkScore;
+        private System.Windows.Forms.Label lblCorrect;
+        private System.Windows.Forms.Label lblWrong;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
