@@ -25,14 +25,18 @@ namespace TriviaProgram
 
     public partial class frmTrivia : Form
     {
+        
         string question, ans1, ans2, ans3, ans4;    //Create variables that 
-        int ansChoose, ansCorrect, score, wrongAns; //could be used throughout the form 
+        int ansChoose, ansCorrect, wrongAns;//could be used throughout the form 
+        double totalCorrect, totalWrong, score; 
         StreamReader inputFile = new StreamReader(@"questions.txt");
 
 
         public frmTrivia()
         {
             InitializeComponent();
+            label1.Visible = false;
+            label2.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -47,14 +51,14 @@ namespace TriviaProgram
             {
                 inputFile = File.OpenText(@"questions.txt");//Open the text file on form load
 
-                MessageBox.Show("File exist\n");//Displays a message if file is found on form load
+                MessageBox.Show("File exist\n","Trivia Program", MessageBoxButtons.OK);//Displays a message if file is found on form load
 
                 question = inputFile.ReadLine();//Reads question from file and stores it in a variable
 
-                ans1 = inputFile.ReadLine();//////////////////////////////
-                ans2 = inputFile.ReadLine();//Reads the answers from file
-                ans3 = inputFile.ReadLine();//and stores them in variables
-                ans4 = inputFile.ReadLine();//////////////////////////////
+                ans1 = "1. " + inputFile.ReadLine();//////////////////////////////
+                ans2 = "2. " + inputFile.ReadLine();//Reads the answers from file
+                ans3 = "3. " + inputFile.ReadLine();//and stores them in variables
+                ans4 = "4. " + inputFile.ReadLine();//////////////////////////////
 
                 ansCorrect = Convert.ToInt32(inputFile.ReadLine());//Stores correct answer by in a variable
                 lblQuestion.Text = question.ToString();//Displays the first question on form load
@@ -108,6 +112,7 @@ namespace TriviaProgram
 
                     if (ansChoose == ansCorrect)
                     {
+                        label1.Visible = true;
                         ++score;//Increment if answer is correct
                         MessageBox.Show("Correct!");//Displays that answer chosen was correct
                         lblCorrect.Text = score.ToString();
@@ -115,17 +120,18 @@ namespace TriviaProgram
                     }
                     else
                     {
+                        label2.Visible = true;
                         ++wrongAns;//Increment if answer is incorrect
-                        MessageBox.Show("Wrong!");//Displays that answer chosen was incorrect
+                        MessageBox.Show("Wrong!\nCorrect answer is number :" + ansCorrect.ToString());//Displays that answer chosen was incorrect
                         lblWrong.Text = wrongAns.ToString();
                     }
                     if (!inputFile.EndOfStream)//Reads until end of file
                     {
                         question = inputFile.ReadLine();
-                        ans1 = inputFile.ReadLine();
-                        ans2 = inputFile.ReadLine();
-                        ans3 = inputFile.ReadLine();
-                        ans4 = inputFile.ReadLine();
+                        ans1 ="1. " + inputFile.ReadLine();
+                        ans2 = "2. " + inputFile.ReadLine();
+                        ans3 = "3. " + inputFile.ReadLine();
+                        ans4 = "4. " + inputFile.ReadLine();
                         ansCorrect = Convert.ToInt32(inputFile.ReadLine());
                         lblQuestion.Text = question.ToString();
                         rdbAnswer1.Text = ans1.ToString();
@@ -143,11 +149,14 @@ namespace TriviaProgram
                     {
                         if(score > wrongAns)//Checks if correct answers are more than wrong answers
                         {
+                            totalCorrect = ((score / 5) * 100);
                             MessageBox.Show("You have passed!!\nYou are a Genius");
+                            MessageBox.Show("Your total score is: % " + totalCorrect.ToString());
                         }
                         else
                         {
-                            MessageBox.Show("You have Failed!!\nGood luck next time");
+                            totalWrong = (wrongAns / 5) * 100;
+                            MessageBox.Show("You have Failed!!\nGood luck next time\nYour total score is: % " + totalWrong.ToString());
                         }
                         inputFile.Close();//Closes file
                         btnNext.Text = "Finish"; //Changes the text of the next button to Finish

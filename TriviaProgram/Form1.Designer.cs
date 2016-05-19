@@ -39,13 +39,14 @@
             this.lblWrong = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblQuestion
             // 
             this.lblQuestion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion.Location = new System.Drawing.Point(12, 18);
+            this.lblQuestion.Location = new System.Drawing.Point(12, 61);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(521, 33);
             this.lblQuestion.TabIndex = 0;
@@ -54,7 +55,7 @@
             // rdbAnswer1
             // 
             this.rdbAnswer1.AutoSize = true;
-            this.rdbAnswer1.Location = new System.Drawing.Point(36, 83);
+            this.rdbAnswer1.Location = new System.Drawing.Point(37, 127);
             this.rdbAnswer1.Name = "rdbAnswer1";
             this.rdbAnswer1.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // rdbAnswer2
             // 
             this.rdbAnswer2.AutoSize = true;
-            this.rdbAnswer2.Location = new System.Drawing.Point(36, 120);
+            this.rdbAnswer2.Location = new System.Drawing.Point(37, 164);
             this.rdbAnswer2.Name = "rdbAnswer2";
             this.rdbAnswer2.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer2.TabIndex = 1;
@@ -72,7 +73,7 @@
             // rdbAnswer3
             // 
             this.rdbAnswer3.AutoSize = true;
-            this.rdbAnswer3.Location = new System.Drawing.Point(36, 157);
+            this.rdbAnswer3.Location = new System.Drawing.Point(37, 201);
             this.rdbAnswer3.Name = "rdbAnswer3";
             this.rdbAnswer3.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer3.TabIndex = 2;
@@ -81,7 +82,7 @@
             // rdbAnswer4
             // 
             this.rdbAnswer4.AutoSize = true;
-            this.rdbAnswer4.Location = new System.Drawing.Point(36, 194);
+            this.rdbAnswer4.Location = new System.Drawing.Point(37, 238);
             this.rdbAnswer4.Name = "rdbAnswer4";
             this.rdbAnswer4.Size = new System.Drawing.Size(14, 13);
             this.rdbAnswer4.TabIndex = 3;
@@ -89,7 +90,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(458, 225);
+            this.btnNext.Location = new System.Drawing.Point(458, 268);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 4;
@@ -99,7 +100,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(458, 254);
+            this.btnExit.Location = new System.Drawing.Point(458, 297);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 5;
@@ -109,14 +110,14 @@
             // 
             // lblCorrect
             // 
-            this.lblCorrect.Location = new System.Drawing.Point(167, 252);
+            this.lblCorrect.Location = new System.Drawing.Point(167, 295);
             this.lblCorrect.Name = "lblCorrect";
             this.lblCorrect.Size = new System.Drawing.Size(23, 23);
             this.lblCorrect.TabIndex = 7;
             // 
             // lblWrong
             // 
-            this.lblWrong.Location = new System.Drawing.Point(309, 252);
+            this.lblWrong.Location = new System.Drawing.Point(309, 295);
             this.lblWrong.Name = "lblWrong";
             this.lblWrong.Size = new System.Drawing.Size(23, 23);
             this.lblWrong.TabIndex = 8;
@@ -124,7 +125,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 253);
+            this.label1.ForeColor = System.Drawing.Color.Green;
+            this.label1.Location = new System.Drawing.Point(72, 296);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 9;
@@ -133,17 +135,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 253);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(216, 296);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Wrong answers: ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(199, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 24);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Trivia Program";
+            // 
             // frmTrivia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 289);
+            this.ClientSize = new System.Drawing.Size(545, 332);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWrong);
@@ -177,6 +191,7 @@
         private System.Windows.Forms.Label lblWrong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
